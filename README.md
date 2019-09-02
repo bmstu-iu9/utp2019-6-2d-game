@@ -5,9 +5,9 @@
 # Команда : 
 
 
-- Алексей Балабанов - [de-ut](https://github.com/de-ut)       ()
+- Алексей Балабанов - [de-ut](https://github.com/de-ut)         ()
 
-- Анастасия Пляко   - [Nattiko](https://github.com/Nattiko)     ()
+- Анастасия Пляко   - [Nattiko](https://github.com/Nattiko)        ()
 
 - Андрей Кулаков    - [neverw23](https://github.com/neverw23)    ()
   
