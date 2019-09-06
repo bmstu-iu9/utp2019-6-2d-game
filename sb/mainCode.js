@@ -8,7 +8,9 @@
         let buttonM = document.getElementById('mainButton');
 		let player = document.getElementById('player');
 		let playerB=document.getElementById('playerButton');
-		let quest= document.getElementById('ref');
+    let quest= document.getElementById('ref');
+    
+    let turn = true;
 		// Далее переменные вспомогательных счетчиков
 		let i = 0;
 		let j = 0;
@@ -59,7 +61,12 @@
 			buf2.className = 'o';
 			}
 			buf2.onclick = function () { 
-				if (attack(this)) computerAttack(); 
+        if(turn){
+          if (attack(this)) {
+            turn = false;
+            setTimeout(computerAttack, 1000);
+          } 
+        }
 			};
 			field2.appendChild(buf2);
       } 
@@ -182,16 +189,14 @@
 				return false;
 			}
 			if (cage.className == 'n') return true;
-		}
-		
+    }
+    
 		//<!-- Функция, позволяющая генерировать компьютеру номер клетки для атаки. При этом включаются только неатакованые клетки. Также проверяет условия победы компьютера. -->
 		function computerAttack() {
-			for (i = 10 * 10; i > 0; i--) {
-				let cages = document.querySelectorAll('#matrixInterface1 .s, #matrixInterface1 .o');
-				if (cages.length == 0 || attack(cages[getRandomInt(0,(cages.length-1))])) break;
-			}
-			if (document.querySelectorAll('#matrixInterface1 .s').length == 0) {
+			let cages = document.querySelectorAll('#matrixInterface1 div');
+      if(attack(cages[AIAtack()])) turn = true; 
+      else if (document.querySelectorAll('#matrixInterface1 .s').length == 0) {
 				alert('Computer is the winner.');
 				location.reload();
-			}
-		} 
+			} else setTimeout(computerAttack, 1000);
+		}
