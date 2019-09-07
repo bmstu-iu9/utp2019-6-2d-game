@@ -146,6 +146,25 @@ let isKilled = (x, y) => {
     if(map[currX][y] != 2){
       return -1;
     }
+    //filling arounds with .(1)
+    if(currX-1 >= 0){
+      if(y+1 < 10) map[currX-1][y+1] = 1;
+      if(y-1 >= 0) map[currX-1][y-1] = 1;
+      map[currX-1][y] = 1;
+    }
+    while(currX+1 < 10 && map[currX+1][y] == 2){
+      if(y+1 < 10) map[currX][y+1] = 1;
+      if(y-1 >= 0) map[currX][y-1] = 1;
+      currX++;
+    }
+    if(y+1 < 10) map[currX][y+1] = 1;
+    if(y-1 >= 0) map[currX][y-1] = 1;
+    if(currX+1 < 10){
+      if(y+1 < 10) map[currX+1][y+1] = 1;
+      if(y-1 >= 0) map[currX+1][y-1] = 1;
+      map[currX+1][y] = 1;
+    }
+
     return count;
 
   }else if((y+1 < 10 && matrix1[x][y+1] == 's') || (y-1 >= 0 && matrix1[x][y-1] == 's')){
@@ -164,7 +183,39 @@ let isKilled = (x, y) => {
     if(map[x][currY] != 2){
       return -1;
     }
+    //filling arounds with .(1)
+    if(currY-1 >= 0){
+      if(x+1 < 10) map[x+1][currY-1] = 1;
+      if(x-1 >= 0) map[x-1][currY-1] = 1;
+      map[x][currY-1] = 1;
+    }
+    while(currY+1 < 10 && map[x][currY+1] == 2){
+      if(x+1 < 10) map[x+1][currY] = 1;
+      if(x-1 >= 0) map[x-1][currY] = 1;
+      currY++;
+    }
+    if(x+1 < 10) map[x+1][currY] = 1;
+    if(x-1 >= 0) map[x-1][currY] = 1;
+    if(currY+1 < 10){
+      if(x+1 < 10) map[x+1][currY+1] = 1;
+      if(x-1 >= 0) map[x-1][currY+1] = 1;
+      map[x][currY+1] = 1;
+    }
     
     return count;
+  } else{
+    if(y-1 >= 0){
+      if(x+1 < 10) map[x+1][y-1] = 1;
+      if(x-1 >= 0) map[x-1][y-1] = 1;
+      map[x][y-1] = 1;
+    }
+    if(x+1 < 10) map[x+1][y] = 1;
+    if(x-1 >= 0) map[x-1][y] = 1;
+    if(y+1 < 10){
+      if(x+1 < 10) map[x+1][y+1] = 1;
+      if(x-1 >= 0) map[x-1][y+1] = 1;
+      map[x][y+1] = 1;
+    }
+    return 0;
   }
 }
