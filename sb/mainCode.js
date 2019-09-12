@@ -63,7 +63,7 @@
           if(turn){
             if (attack(this)) {
               turn = false;
-              setTimeout(computerAttack, 1000);
+              setTimeout(computerAttack, 500);
             } 
           }
         };
@@ -100,7 +100,7 @@
 		function computerAttack() {
       let x = AIAtack();
       if(attack(document.querySelector('#p' + Math.floor(x/10) + x%10))) turn = true; 
-      else setTimeout(computerAttack, 1000);
+      else setTimeout(computerAttack, 500);
     }
     
     function endOfGame(target){
