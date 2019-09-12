@@ -6,11 +6,11 @@
 ## Команда ##
 
 
-- Алексей Балабанов - [de-ut](https://github.com/de-ut) ()
+- Алексей Балабанов - [de-ut](https://github.com/de-ut) (ИИ, разделение кода, рефакторинг)
 
 - Анастасия Пляко   - [Nattiko](https://github.com/Nattiko) ()
 
-- Андрей Кулаков    - [neverw23](https://github.com/neverw23) ()
+- Андрей Кулаков    - [neverw23](https://github.com/neverw23) (реализация основных механизмов игры, генератор полей, разделение кода)
   
 - Гаврилов Матан    - [matvey12001](https://github.com/matvey12001) (Captain)
 
