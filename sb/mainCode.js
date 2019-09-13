@@ -10,7 +10,7 @@
 		let playerB=document.getElementById('playerButton');
     let quest= document.getElementById('ref');
     
-    let counts = [20, 20];
+    let counts = [0, 0];
     let turn = true;
 		// Далее переменные вспомогательных счетчиков
 		let i = 0;
@@ -29,10 +29,20 @@
 		//<!-- Функция "Главной кнопки"  -->
 		buttonM.onclick = function () {
 		player.play(); //<!-- Включение музыки -->
-		buttonM.disabled = true;// <!-- Диактивация кнопки -->
-		matrix2=matrixGenerator();// <!-- Генерация поля компьютера -->
-		alert("This version does not support ship placement so use random!");
-		matrix1=matrixGenerator();// <!-- Генерация поля игрока -->
+    buttonM.disabled = true;// <!-- Диактивация кнопки -->
+    while(counts[1] != 20){
+      counts[1] = 0;
+      matrix2 = [];
+      matrix2=matrixGenerator();// <!-- Генерация поля компьютера -->
+      for(let i = 0; i < 10; i++) for(let j = 0; j < 10; j++) if(matrix2[i][j] == 's') counts[1]++;
+    }
+    alert("This version does not support ship placement so use random!");
+    while(counts[0] != 20){
+      counts[0] = 0;
+      matrix1 = []
+      matrix1=matrixGenerator();// <!-- Генерация поля игрока -->
+      for(let i = 0; i < 10; i++) for(let j = 0; j < 10; j++) if(matrix1[i][j] == 's') counts[0]++;
+    }
 		//<!-- Заполнение системы вывода строками матрицы -->
 		for (i = 0; i < 10; i++) {
 			if (matrix1[i] != undefined) {
